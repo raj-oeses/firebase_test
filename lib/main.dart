@@ -1,26 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:test_project/test_project.dart';
 
-import 'feature/home_page/pages/home_page.dart';
+import 'app_setup/app_init.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => initializeApp();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return ProviderScope(
-        child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                useMaterial3: true,
-                fontFamily: 'robotoMF',
-                scaffoldBackgroundColor: const Color(0xfff4f4f4)),
-            home: const HomePage()));
-  }
-}
+Future initializeApp() async => runZonedGuarded(() async {
+      await AppInit.initialize();
+      runApp(const ProviderScope(child: TestProject()));
+    }, (error, stack) {});

@@ -36,6 +36,7 @@ List<String> assessmentSelectableItems = [
   'Jill has a dog as a pet.',
   'Jill took a cab.'
 ];
+List<String> trueAnswers = ['Jill bought candies.', 'Jill took a cab.'];
 const readSentence =
     'Proin ultrices fringilla et scelerisque sed duis massa nulla. Eget arcu urna ipsum in neque ornare. Integer placerat rhoncus purus est ut ultrices. Pharetra amet faucibus tincidunt mattis in enim. Duis pharetra integer adipiscing quisque elementum lacus porta. Sit diam aliquam quisque purus tortor.Ut turpis consectetur massa libero. Habitant lobortis dictum pretium et tortor\n\nfacilisi in enim porttitor. Purus porta pulvinar sit ultrices aliquam ultrices lacus quam. Gravida etiam facilisis enim purus ornare quis donec leo dignissim. Etiam at non aliquam quis.\n\nPellentesque pellentesque at amet vitae turpis hac in. Felis eu purus vel interdum accumsan lorem dictu.';
 
@@ -43,5 +44,33 @@ const readSentence =
 List<AnimalModel> animalList = [
   AnimalModel(name: 'Chicken', image: 'chicken'),
   AnimalModel(name: 'Dog', image: 'dog'),
-  AnimalModel(name: 'Horse', image: 'horse'),
+  AnimalModel(name: 'Horse', image: 'horse')
+];
+final List<String> names = [
+  'Alice',
+  'Bob',
+  'Charlie',
+  'David',
+  'Edward',
+  'Fiona',
+  'George',
+  'Hannah',
+  'Ivy',
+  'Jack',
+  'Katie',
+  'Liam',
+  'Mona',
+  'Nate',
+  'Olivia',
+  'Paul',
+  'Quinn',
+  'Rachel',
+  'Steve',
+  'Tracy',
+  'Uma',
+  'Victor',
+  'Wendy',
+  'Xander',
+  'Yara',
+  'Zane'
 ];

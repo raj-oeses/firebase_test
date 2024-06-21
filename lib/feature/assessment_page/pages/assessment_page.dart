@@ -7,6 +7,7 @@ import 'package:test_project/feature/assessment_page/pages/components/assessment
 import 'package:test_project/feature/assessment_page/pages/provider/assessment_provider.dart';
 
 import '../../../core/utils/colors.dart';
+import '../data/model/store_data_model.dart';
 
 class AssessmentPage extends ConsumerStatefulWidget {
   const AssessmentPage({super.key});
@@ -44,6 +45,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
             ],
             assessState.page == 4
                 ? Row(
+                    //
                     children: [
                       Expanded(
                         child: CustomBackButton(
@@ -79,9 +81,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                       Expanded(
                         child: ShadowButton(
                             isDisable: false,
-                            onPressed: () => ref
-                                .read(assessProvider.notifier)
-                                .incrementPage(),
+                            onPressed: () => assessState.page == 3
+                                ? ref.read(assessProvider.notifier).storeData()
+                                : ref
+                                    .read(assessProvider.notifier)
+                                    .incrementPage(),
                             text:
                                 assessState.page == 3 ? 'Finish' : 'Continue'),
                       )
