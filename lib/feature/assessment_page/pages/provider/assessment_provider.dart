@@ -56,7 +56,8 @@ class AssessmentProvider extends StateNotifier<AssessmentState> {
   }
 
   //Store in Firebase Database
-  Future storeData(PatientDataModel? data) async {
+  Future<bool> storeData(PatientDataModel? data) async {
+    state = state.copy(isLoading: true);
     //this is to find jill true answers
     int jillRightStory = 0;
     trueAnswers.forEach((element) {
@@ -80,14 +81,18 @@ class AssessmentProvider extends StateNotifier<AssessmentState> {
 
     ///Saving in data base
     try {
-      await _db
-          .collection('datas')
-          .add(storeDataModel.toJson())
-          .then((value) async {});
+      await _db.collection('data').add(storeDataModel.toJson());
+      state = state.copy(isLoading: false);
+      return true;
     } catch (e) {
       print('Exception:::::::::$e');
     }
+    state = state.copy(isLoading: false);
+    return false;
   }
+
+  showAllQuestions() =>
+      state = state.copy(showAllQuestions: !state.showAllQuestions!);
 }
 
 final assessProvider =

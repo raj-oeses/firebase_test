@@ -3,7 +3,7 @@ import '../../feature/home_page/data/model/history_model.dart';
 
 List<HistoryModel> historyList = [
   HistoryModel(
-      testName: "Physical Examination",
+      testName: "Normal",
       sn: 'Z00.00',
       name: 'Emerson Calzoni',
       age: '36',
@@ -12,7 +12,7 @@ List<HistoryModel> historyList = [
       id: '1',
       weight: '84'),
   HistoryModel(
-      testName: "Diagnostic Tests",
+      testName: "Mild Cognitive Impairment",
       sn: 'Z01.80',
       name: 'Davis Culhane',
       age: '41',
@@ -21,7 +21,7 @@ List<HistoryModel> historyList = [
       id: '2',
       weight: '44'),
   HistoryModel(
-      testName: "Diagnostic Tests",
+      testName: "Dementia",
       sn: 'Z01.80',
       name: 'Davis Culhane',
       age: '41',

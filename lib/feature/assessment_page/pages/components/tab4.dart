@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:test_project/core/utils/colors.dart';
 
 import '../../../../core/utils/properties.dart';
+import '../provider/assessment_provider.dart';
 import 'heading_section.dart';
 
-class Tab4 extends StatelessWidget {
+class Tab4 extends ConsumerWidget {
   const Tab4({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final assessState = ref.watch(assessProvider);
     return Column(
       children: [
         sizeBox30,
@@ -30,19 +33,38 @@ class Tab4 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15.0)),
             child: Column(
               children: [
-                CircularGraph(currentValue: 14, totalValue: 15),
+                const CircularGraph(currentValue: 14, totalValue: 15),
                 sizeBox10,
-                Divider(color: grey200),
+                const Divider(color: grey200),
                 sizeBox10,
-                _resultTile(questions: "Question1", isRight: true),
-                _resultTile(questions: "Question2", isRight: false),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text('See All',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: orange500,
-                          fontSize: 14.0)),
+                if (assessState.showAllQuestions == false) ...[
+                  _resultTile(questions: "Question1", isRight: true),
+                  _resultTile(questions: "Question2", isRight: false),
+                ],
+                if (assessState.showAllQuestions == true) ...[
+                  _resultTile(questions: "Question1", isRight: true),
+                  _resultTile(questions: "Question2", isRight: false),
+                  _resultTile(questions: "Question1", isRight: true),
+                  _resultTile(questions: "Question2", isRight: false),
+                  _resultTile(questions: "Question1", isRight: true),
+                  _resultTile(questions: "Question2", isRight: false),
+                  _resultTile(questions: "Question2", isRight: true),
+                ],
+
+                InkWell(
+                  onTap: () =>
+                      ref.read(assessProvider.notifier).showAllQuestions(),
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Text(
+                        assessState.showAllQuestions ?? false
+                            ? 'See Less'
+                            : 'Show All',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: orange500,
+                            fontSize: 14.0)),
+                  ),
                 ) //
               ],
             ))
