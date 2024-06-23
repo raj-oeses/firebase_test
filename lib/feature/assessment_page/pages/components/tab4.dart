@@ -48,7 +48,7 @@ class Tab4 extends ConsumerWidget {
                   _resultTile(questions: "Question2", isRight: false),
                   _resultTile(questions: "Question1", isRight: true),
                   _resultTile(questions: "Question2", isRight: false),
-                  _resultTile(questions: "Question2", isRight: true),
+                  _resultTile(questions: "Question2", isRight: true)
                 ],
 
                 InkWell(
