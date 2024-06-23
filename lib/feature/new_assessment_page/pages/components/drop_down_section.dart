@@ -46,7 +46,7 @@ class DropDownSection extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(10.0)),
               child: DropdownButtonFormField<String>(
                   decoration: InputDecoration(
-                      suffixIcon: const Icon(Icons.keyboard_arrow_down),
+                      // suffixIcon: const Icon(Icons.keyboard_arrow_down),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(_borderRadius),
                           borderSide: const BorderSide(color: grey200)),

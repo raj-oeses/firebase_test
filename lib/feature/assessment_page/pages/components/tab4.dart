@@ -33,22 +33,22 @@ class Tab4 extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(15.0)),
             child: Column(
               children: [
-                const CircularGraph(currentValue: 14, totalValue: 15),
+                const CircularGraph(currentValue: 5, totalValue: 7),
                 sizeBox10,
                 const Divider(color: grey200),
                 sizeBox10,
                 if (assessState.showAllQuestions == false) ...[
                   _resultTile(questions: "Question1", isRight: true),
-                  _resultTile(questions: "Question2", isRight: false),
+                  _resultTile(questions: "Question2", isRight: true),
                 ],
                 if (assessState.showAllQuestions == true) ...[
                   _resultTile(questions: "Question1", isRight: true),
-                  _resultTile(questions: "Question2", isRight: false),
-                  _resultTile(questions: "Question1", isRight: true),
-                  _resultTile(questions: "Question2", isRight: false),
-                  _resultTile(questions: "Question1", isRight: true),
-                  _resultTile(questions: "Question2", isRight: false),
-                  _resultTile(questions: "Question2", isRight: true)
+                  _resultTile(questions: "Question2", isRight: true),
+                  _resultTile(questions: "Question3", isRight: true),
+                  _resultTile(questions: "Question4", isRight: false),
+                  _resultTile(questions: "Question5", isRight: true),
+                  _resultTile(questions: "Question6", isRight: false),
+                  _resultTile(questions: "Question7", isRight: true)
                 ],
 
                 InkWell(
