@@ -1,9 +1,14 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
 class NewAssessmentState {
   final bool isIgnoring;
   final String? selectedStatus;
   final String? selectedMeasure;
   final List<String>? status;
   final List<String>? measures;
+   String? fullName;
+
 
   NewAssessmentState({
     this.isIgnoring = true,
@@ -11,6 +16,7 @@ class NewAssessmentState {
     this.selectedStatus,
     this.selectedMeasure,
     this.measures,
+    this.fullName,
   });
 
   NewAssessmentState copy({
@@ -19,6 +25,7 @@ class NewAssessmentState {
     String? selectedMeasure,
     List<String>? status,
     List<String>? measures,
+    String? fullName,
   }) =>
       NewAssessmentState(
         isIgnoring: isIgnoring ?? this.isIgnoring,
@@ -26,5 +33,6 @@ class NewAssessmentState {
         selectedMeasure: selectedMeasure ?? this.selectedMeasure,
         status: status ?? this.status,
         measures: measures ?? this.measures,
+        fullName: fullName ?? this.fullName,
       );
 }

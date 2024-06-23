@@ -5,10 +5,12 @@ import 'package:test_project/feature/new_assessment_page/pages/provider/new_asse
 class NewAssessmentProvider extends StateNotifier<NewAssessmentState> {
   NewAssessmentProvider(super.state) {
     _initialize();
+    print('we are at initialize');
   }
 
   _initialize() => state = state.copy(
-      status: ['Normal', 'Mild Cognitive Impairment', 'Dementia', 'Other']);
+      status: ['Normal', 'Mild Cognitive Impairment', 'Dementia', 'Other'],
+      fullName: '');
 
   //select status
   changeStatus(String? status) {

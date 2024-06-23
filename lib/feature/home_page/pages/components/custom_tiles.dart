@@ -163,9 +163,9 @@ class RecentAssessmentTile extends StatelessWidget {
               onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NewAssessmentPage(data: data))),
+                      builder: (context) => NewAssessmentPage())),
               child: const Icon(Icons.arrow_circle_right_outlined,
-                  color: orange600)),
+                  color: orange600))
         ],
       ),
     );

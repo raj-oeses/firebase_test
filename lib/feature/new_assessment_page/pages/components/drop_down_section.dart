@@ -52,11 +52,10 @@ class DropDownSection extends ConsumerWidget {
                           borderSide: const BorderSide(color: grey200)),
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 12.0, vertical: 16.0)),
-                  hint: Text(
-                    hint,
-                    style: TextStyle(
-                        color: isIgnoring ?? false ? grey600Opacity : grey600),
-                  ),
+                  hint: Text(hint,
+                      style: TextStyle(
+                          color:
+                              isIgnoring ?? false ? grey600Opacity : grey600)),
                   value: selectedStatus,
                   items: status?.map((String status) {
                     return DropdownMenuItem<String>(
@@ -92,13 +91,11 @@ class AutoCompleteNameField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.w700,
-                color: isIgnoring ? grey600Opacity : grey600),
-          ),
+          Text(title,
+              style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w700,
+                  color: isIgnoring ? grey600Opacity : grey600)),
           sizeBox10,
           Container(
             decoration: BoxDecoration(
@@ -116,16 +113,20 @@ class AutoCompleteNameField extends StatelessWidget {
                       TextEditingController textEditingController,
                       FocusNode focusNode,
                       VoidCallback onFieldSubmitted) =>
-                  TextField(
+                  TextFormField(
                       readOnly: isIgnoring,
                       controller: textEditingController,
                       focusNode: focusNode,
-                      onSubmitted: (String val) => onSubmit?.call(val),
+                      onFieldSubmitted: (String val) => onSubmit?.call(val),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.circular(_borderRadius)),
-                          hintText: title)),
+                          hintText: title,
+                          hintStyle: TextStyle(
+                              color: isIgnoring ?? false
+                                  ? grey600Opacity
+                                  : grey600))),
               optionsViewBuilder: (BuildContext context,
                       AutocompleteOnSelected<String> onSelected,
                       Iterable<String> options) =>

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:test_project/core/constants/demo_data.dart';
 import 'package:test_project/core/utils/enums.dart';
 import 'package:test_project/feature/assessment_page/pages/provider/assessment_state.dart';
+import 'package:test_project/feature/new_assessment_page/data/model/patient_data_model.dart';
 
 import '../../data/model/store_data_model.dart';
 
@@ -55,7 +56,7 @@ class AssessmentProvider extends StateNotifier<AssessmentState> {
   }
 
   //Store in Firebase Database
-  Future storeData() async {
+  Future storeData(PatientDataModel? data) async {
     //this is to find jill true answers
     int jillRightStory = 0;
     trueAnswers.forEach((element) {
@@ -67,22 +68,22 @@ class AssessmentProvider extends StateNotifier<AssessmentState> {
 
     //this is storing model
     StoreDataModel storeDataModel = StoreDataModel(
-        id: 'adsf',
+        id: '',
+        measures: data?.measures,
+        patientName: data?.patientName,
+        status: data?.status,
         fingerRaised: state.correctOrIncorrect,
         jillStoryCorrect: jillRightStory,
         jillStoryIncorrect: jillWrongStory,
         animalIdentifyCorrect: state.rightAnimal,
         animalIdentifyInorrect: animalList.length - state.rightAnimal!.toInt());
-    print('store Data model is ${storeDataModel.toJson()}');
 
     ///Saving in data base
     try {
       await _db
           .collection('datas')
           .add(storeDataModel.toJson())
-          .then((value) async {
-        print('value ${value}');
-      });
+          .then((value) async {});
     } catch (e) {
       print('Exception:::::::::$e');
     }

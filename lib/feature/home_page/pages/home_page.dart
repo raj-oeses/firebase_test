@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
               onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const AssessmentPage())),
+                      builder: (context) => const NewAssessmentPage())),
               text: 'New assessment',
               icon: Icons.add),
         ));
