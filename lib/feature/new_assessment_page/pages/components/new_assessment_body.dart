@@ -48,9 +48,7 @@ class NewAssessmentBody extends ConsumerWidget {
                   onChanged: (val) => nwAssessState.fullName = val,
                   onSubmit: (val) => nwAssessState.fullName = val),
               sizeBox40,
-              sizeBox40,
-              sizeBox40,
-              sizeBox40
+
             ],
           ),
         ),
