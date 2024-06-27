@@ -25,11 +25,11 @@ class AssessmentBody extends ConsumerWidget {
               children: List.generate(
                   5, (index) => _tab(isSelected: index <= assessState.page))),
           sizeBox10,
-          if (assessState.page == 0) Tab0(),
-          if (assessState.page == 1) Tab1(),
-          if (assessState.page == 2) Tab2(),
-          if (assessState.page == 3) Tab3(),
-          if (assessState.page == 4) Tab4(),
+          if (assessState.page == 0) const Tab0(),
+          if (assessState.page == 1) const Tab1(),
+          if (assessState.page == 2) const Tab2(),
+          if (assessState.page == 3) const Tab3(),
+          if (assessState.page == 4) const Tab4()
         ],
       ),
     );
