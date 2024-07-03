@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 ///-----------------------------------------------------------------------------vertical
 const sizeBox5 = SizedBox(height: 5);
@@ -18,9 +19,17 @@ const widthBox40 = SizedBox(width: 40);
 
 String pngImage(String? imageName) => 'assets/images/$imageName.png';
 
+String authImage(String? imageName) => 'assets/icons/auth/$imageName.png';
+
 List<BoxShadow>? regularBoxShadow = [
   BoxShadow(
-      color:  Colors.grey.withOpacity(.2),
+      color: Colors.grey.withOpacity(.2),
       blurRadius: 3,
       offset: const Offset(0, 7))
 ];
+
+double screenWidth(BuildContext context) => MediaQuery.of(context).size.width;
+
+double screenHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
+unFocus() => Get.focusScope!.unfocus();
